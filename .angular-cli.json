@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "assets/scss/styles.scss"
+        "assets/scss/styles.scss",
+        "../node_modules/bootstrap/bootstrap.scss"
       ],
       "stylePreprocessorOptions": {
         "includePaths": [
