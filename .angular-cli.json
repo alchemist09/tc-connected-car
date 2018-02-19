@@ -20,7 +20,7 @@
       "prefix": "app",
       "styles": [
         "assets/scss/styles.scss",
-        "../node_modules/bootstrap/bootstrap.scss"
+        "../node_modules/bootstrap/scss/bootstrap.scss"
       ],
       "stylePreprocessorOptions": {
         "includePaths": [
