@@ -9,3 +9,17 @@ h2 {
   width: 380px;
   margin: 0 auto;
 }
+
+.has-error {
+  input {
+    border: 2px solid red;
+    box-shadow: none;
+  }
+}
+
+.has-success {
+  input {
+    border: 2px solid green;
+    box-shadow: none;
+  }
+}
