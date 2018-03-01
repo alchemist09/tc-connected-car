@@ -1,3 +1,5 @@
+@import '../../../assets/scss/styles.scss';
+
 h2 {
   margin-bottom: 2em;
   margin-top: 5em;
@@ -8,18 +10,4 @@ h2 {
 .login-component {
   width: 380px;
   margin: 0 auto;
-}
-
-.has-error {
-  input {
-    border: 2px solid red;
-    box-shadow: none;
-  }
-}
-
-.has-success {
-  input {
-    border: 2px solid green;
-    box-shadow: none;
-  }
 }
