@@ -18,12 +18,12 @@
                required>
         <div class="form-control-feedback"
               *ngIf="email.errors && (email.dirty || email.touched)">
-              <p [ngClass]="'text-danger'" *ngIf="email.errors.required">Email is required</p>
-              <p [ngClass]="'text-danger'" *ngIf="email.errors.pattern">Not a valid email format</p> 
+              <p [ngClass]="'text-danger'" *ngIf="loginForm.controls['email'].errors.required">Email is required</p>
+              <p [ngClass]="'text-danger'" *ngIf="loginForm.controls['email'].errors.pattern">Not a valid email format</p>
         </div>
       </div>
-        
-      <div class="form-group" 
+
+      <div class="form-group"
            [ngClass] = "{
               'has-error': password.invalid && (password.dirty || password.touched),
               'has-success': password.valid && (password.dirty || password.touched)
@@ -38,12 +38,12 @@
                required>
         <div class="form-control-feedback"
               *ngIf="password.errors && (password.dirty || password.touched)">
-              <p [ngClass]="'text-danger'" *ngIf="password.errors.required">Password is required</p>
-              <p [ngClass]="'text-danger'" *ngIf="password.errors.pattern">Password must contain a special character</p>
-              <p [ngClass]="'text-danger'" *ngIf="password.errors.minlength">Password must me at least 8 character long</p>
+              <p [ngClass]="'text-danger'" *ngIf="loginForm.controls['password'].errors.required">Password is required</p>
+              <p [ngClass]="'text-danger'" *ngIf="loginForm.controls['password'].errors.pattern">Password must contain a special character</p>
+              <p [ngClass]="'text-danger'" *ngIf="loginForm.controls['password'].errors.minlength">Password must me at least 8 character long</p>
         </div>
       </div>
-        
+
       <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
     </form>
   </div>

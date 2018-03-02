@@ -1,3 +1,56 @@
-<p>
-  customer-lookup works!
-</p>
+<div class="row">
+  <div class="customer-lookup-component">
+    <h2 class="text-center">Customer Lookup</h2>
+
+    <form [formGroup]="customerLookupForm" (ngSubmit)="lookupCustomer()">
+      <div class="form-group"
+           [ngClass] = "{
+             'has-error': phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched),
+             'has-success': phoneNumber.valid && phoneNumber.dirty
+           }">
+        <label for="phone">Phone</label>
+        <input type="text"
+               class="form-control"
+               id="phone"
+               aria-describedby="phoneHelp"
+               placeholder="Phone Number"
+               formControlName="phoneNumber"
+               required>
+        <div class="form-control-feedback"
+              *ngIf="phoneNumber.errors && (phoneNumber.dirty || phoneNumber.touched)">
+              <p [ngClass]="'text-danger'" *ngIf="customerLookupForm.controls['phoneNumber'].errors.required">Phone number is required</p>
+              <p [ngClass]="'text-danger'" *ngIf="customerLookupForm.controls['phoneNumber'].errors.pattern">Not a valid phone number format</p>
+        </div>
+      </div>
+
+      <div class="form-group"
+           [ngClass] = "{
+              'has-error': email.invalid && (email.dirty || email.touched),
+              'has-success': email.valid && (email.dirty || email.touched)
+           }">
+        <label for="email">Email</label>
+        <input type="email"
+               class="form-control"
+               id="email"
+               placeholder="Email Address"
+               data-toggle="email"
+               formControlName="email"
+               required>
+        <div class="form-control-feedback"
+              *ngIf="email.errors && (email.dirty || email.touched)">
+              <p [ngClass]="'text-danger'" *ngIf="customerLookupForm.controls['email'].errors.required">Email is required</p>
+              <p [ngClass]="'text-danger'" *ngIf="customerLookupForm.controls['email'].errors.pattern">Not a valid email</p>
+        </div>
+      </div>
+
+      <div class="cancel-submit-buttons">
+        <button type="reset"
+                class="btn btn-lg btn-customer-lookup-cancel"
+                (click)="resetForm()">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-customer-lookup-submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

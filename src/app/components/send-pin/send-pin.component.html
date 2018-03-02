@@ -1,3 +1,56 @@
-<p>
-  send-pin works!
-</p>
+<div class="row">
+  <div class="customer-lookup-component">
+    <h2 class="text-center">Send PIN</h2>
+
+    <form [formGroup]="sendPinForm" (ngSubmit)="sendPin()">
+      <div class="form-group"
+           [ngClass] = "{
+             'has-error': firstName.invalid && (firstName.dirty || firstName.touched),
+             'has-success': firstName.valid && firstName.dirty
+           }">
+        <label for="phone">First Name</label>
+        <input type="text"
+               class="form-control"
+               id="phone"
+               aria-describedby="phoneHelp"
+               placeholder="Customer"
+               formControlName="firstName"
+               required>
+        <div class="form-control-feedback"
+              *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+              <p [ngClass]="'text-danger'" *ngIf="sendPinForm.controls['firstName'].errors.required">Name is required</p>
+              <p [ngClass]="'text-danger'" *ngIf="sendPinForm.controls['firstName'].errors.pattern">Not a valid name</p>
+        </div>
+      </div>
+
+      <div class="form-group"
+           [ngClass] = "{
+              'has-error': lastName.invalid && (lastName.dirty || lastName.touched),
+              'has-success': lastName.valid && (lastName.dirty || lastName.touched)
+           }">
+        <label for="lastName">Last Name</label>
+        <input type="text"
+               class="form-control"
+               id="lastName"
+               placeholder="Name"
+               data-toggle="lastName"
+               formControlName="lastName"
+               required>
+        <div class="form-control-feedback"
+              *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+              <p [ngClass]="'text-danger'" *ngIf="sendPinForm.controls['lastName'].errors.required">Last name is required</p>
+              <p [ngClass]="'text-danger'" *ngIf="sendPinForm.controls['lastName'].errors.pattern">Not a valid name</p>
+        </div>
+      </div>
+
+      <div class="cancel-submit-buttons">
+        <button type="reset"
+                class="btn btn-lg btn-customer-lookup-cancel"
+                (click)="resetForm()">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-customer-lookup-submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
